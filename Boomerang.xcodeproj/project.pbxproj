@@ -13,6 +13,11 @@
 		BF3307BE2A74DE370044D4A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3307BD2A74DE370044D4A1 /* Preview Assets.xcassets */; };
 		BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307BF2A74DE370044D4A1 /* Persistence.swift */; };
 		BF3307C32A74DE370044D4A1 /* Boomerang.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF3307C12A74DE370044D4A1 /* Boomerang.xcdatamodeld */; };
+		BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307C92A74E41C0044D4A1 /* HomeView.swift */; };
+		BF3307CF2A74E8F50044D4A1 /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307CE2A74E8F50044D4A1 /* CustomTabBar.swift */; };
+		BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D02A74E9220044D4A1 /* RootView.swift */; };
+		BF3307D42A74EA030044D4A1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D32A74EA030044D4A1 /* Fonts.swift */; };
+		BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D72A74F15A0044D4A1 /* TabBarButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +28,11 @@
 		BF3307BD2A74DE370044D4A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF3307BF2A74DE370044D4A1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		BF3307C22A74DE370044D4A1 /* Boomerang.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Boomerang.xcdatamodel; sourceTree = "<group>"; };
+		BF3307C92A74E41C0044D4A1 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		BF3307CE2A74E8F50044D4A1 /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		BF3307D02A74E9220044D4A1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BF3307D32A74EA030044D4A1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		BF3307D72A74F15A0044D4A1 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,8 @@
 			children = (
 				BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */,
 				BF3307B82A74DE360044D4A1 /* ContentView.swift */,
+				BF3307D22A74E9F80044D4A1 /* Helpers */,
+				BF3307CD2A74E8EB0044D4A1 /* View */,
 				BF3307BA2A74DE370044D4A1 /* Assets.xcassets */,
 				BF3307BF2A74DE370044D4A1 /* Persistence.swift */,
 				BF3307C12A74DE370044D4A1 /* Boomerang.xcdatamodeld */,
@@ -71,6 +83,33 @@
 				BF3307BD2A74DE370044D4A1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BF3307CE2A74E8F50044D4A1 /* CustomTabBar.swift */,
+				BF3307D72A74F15A0044D4A1 /* TabBarButton.swift */,
+			);
+			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		BF3307CD2A74E8EB0044D4A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
+				BF3307D02A74E9220044D4A1 /* RootView.swift */,
+				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF3307D22A74E9F80044D4A1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BF3307D32A74EA030044D4A1 /* Fonts.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +182,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3307D42A74EA030044D4A1 /* Fonts.swift in Sources */,
 				BF3307C32A74DE370044D4A1 /* Boomerang.xcdatamodeld in Sources */,
 				BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */,
 				BF3307B92A74DE360044D4A1 /* ContentView.swift in Sources */,
+				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
+				BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */,
+				BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */,
+				BF3307CF2A74E8F50044D4A1 /* CustomTabBar.swift in Sources */,
 				BF3307B72A74DE360044D4A1 /* BoomerangApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
