@@ -18,6 +18,11 @@
 		BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D02A74E9220044D4A1 /* RootView.swift */; };
 		BF3307D42A74EA030044D4A1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D32A74EA030044D4A1 /* Fonts.swift */; };
 		BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307D72A74F15A0044D4A1 /* TabBarButton.swift */; };
+		BF3307DB2A74F8DC0044D4A1 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = BF3307DA2A74F8DC0044D4A1 /* PopupView */; };
+		BF3307DD2A74FA880044D4A1 /* PopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307DC2A74FA880044D4A1 /* PopUpView.swift */; };
+		BF3307E22A7504860044D4A1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307DF2A7504860044D4A1 /* Poppins-Bold.ttf */; };
+		BF3307E32A7504860044D4A1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307E02A7504860044D4A1 /* Poppins-Medium.ttf */; };
+		BF3307E42A7504860044D4A1 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +38,11 @@
 		BF3307D02A74E9220044D4A1 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		BF3307D32A74EA030044D4A1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		BF3307D72A74F15A0044D4A1 /* TabBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButton.swift; sourceTree = "<group>"; };
+		BF3307DC2A74FA880044D4A1 /* PopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpView.swift; sourceTree = "<group>"; };
+		BF3307DF2A7504860044D4A1 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		BF3307E02A7504860044D4A1 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
+		BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		BF3307E52A7504990044D4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF3307DB2A74F8DC0044D4A1 /* PopupView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +76,8 @@
 		BF3307B52A74DE360044D4A1 /* Boomerang */ = {
 			isa = PBXGroup;
 			children = (
+				BF3307E52A7504990044D4A1 /* Info.plist */,
+				BF3307DE2A7504240044D4A1 /* Fonts */,
 				BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */,
 				BF3307B82A74DE360044D4A1 /* ContentView.swift */,
 				BF3307D22A74E9F80044D4A1 /* Helpers */,
@@ -99,6 +112,7 @@
 			children = (
 				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
 				BF3307D02A74E9220044D4A1 /* RootView.swift */,
+				BF3307DC2A74FA880044D4A1 /* PopUpView.swift */,
 				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
 			);
 			path = View;
@@ -110,6 +124,16 @@
 				BF3307D32A74EA030044D4A1 /* Fonts.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BF3307DE2A7504240044D4A1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BF3307DF2A7504860044D4A1 /* Poppins-Bold.ttf */,
+				BF3307E02A7504860044D4A1 /* Poppins-Medium.ttf */,
+				BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +152,9 @@
 			dependencies = (
 			);
 			name = Boomerang;
+			packageProductDependencies = (
+				BF3307DA2A74F8DC0044D4A1 /* PopupView */,
+			);
 			productName = Boomerang;
 			productReference = BF3307B32A74DE360044D4A1 /* Boomerang.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +183,9 @@
 				Base,
 			);
 			mainGroup = BF3307AA2A74DE360044D4A1;
+			packageReferences = (
+				BF3307D92A74F8DC0044D4A1 /* XCRemoteSwiftPackageReference "PopupView" */,
+			);
 			productRefGroup = BF3307B42A74DE360044D4A1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,7 +201,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3307BE2A74DE370044D4A1 /* Preview Assets.xcassets in Resources */,
+				BF3307E32A7504860044D4A1 /* Poppins-Medium.ttf in Resources */,
+				BF3307E22A7504860044D4A1 /* Poppins-Bold.ttf in Resources */,
 				BF3307BB2A74DE370044D4A1 /* Assets.xcassets in Resources */,
+				BF3307E42A7504860044D4A1 /* Poppins-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +220,7 @@
 				BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */,
 				BF3307B92A74DE360044D4A1 /* ContentView.swift in Sources */,
 				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
+				BF3307DD2A74FA880044D4A1 /* PopUpView.swift in Sources */,
 				BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */,
 				BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */,
 				BF3307CF2A74E8F50044D4A1 /* CustomTabBar.swift in Sources */,
@@ -322,6 +356,7 @@
 				DEVELOPMENT_TEAM = L8QX5LU28U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boomerang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -351,6 +386,7 @@
 				DEVELOPMENT_TEAM = L8QX5LU28U;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Boomerang/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -391,6 +427,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF3307D92A74F8DC0044D4A1 /* XCRemoteSwiftPackageReference "PopupView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Mijick/PopupView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF3307DA2A74F8DC0044D4A1 /* PopupView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF3307D92A74F8DC0044D4A1 /* XCRemoteSwiftPackageReference "PopupView" */;
+			productName = PopupView;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		BF3307C12A74DE370044D4A1 /* Boomerang.xcdatamodeld */ = {

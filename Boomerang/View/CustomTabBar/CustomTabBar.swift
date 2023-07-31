@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PopupView
 
 enum Tabs : Int {
     case home = 0
@@ -27,7 +28,7 @@ struct CustomTabBar: View {
             .tint(Color.gray)
             
             Button {
-         
+                PopUpView().showAndStack()
             } label: {
                 VStack(alignment: .center, spacing : 4){
                     Image(systemName: "plus.circle.fill")
