@@ -19,7 +19,7 @@ struct CustomTabBar: View {
     
     //MARK: - BODY
     var body: some View {
-        HStack(alignment: .center){
+        HStack(alignment: .center, spacing: 32){
             Button {
                 selectedTab = .home
             } label: {

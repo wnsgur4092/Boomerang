@@ -16,6 +16,13 @@ struct HomeView: View {
         }
 
     }
+    
+    fileprivate var header : some View {
+        HStack(spacing: 0) {
+            Text("Boomerang")
+                .font(.boldFont(size: 24))
+        }
+    }
 }
 
 struct HomeView_Previews: PreviewProvider {
