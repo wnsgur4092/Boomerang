@@ -112,8 +112,8 @@
 		BF3307CD2A74E8EB0044D4A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
 				BF3307D02A74E9220044D4A1 /* RootView.swift */,
+				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
 				BF3307DC2A74FA880044D4A1 /* PopUpView.swift */,
 				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
 			);

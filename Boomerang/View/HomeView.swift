@@ -9,11 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     var body: some View {
-        Button {
-            
-        } label: {
-            Text("TAPPED")
-        }
+        header
+        
+        item
 
     }
     
@@ -21,7 +19,38 @@ struct HomeView: View {
         HStack(spacing: 0) {
             Text("Boomerang")
                 .font(.boldFont(size: 24))
+            
+            Spacer()
+            
+            Text("2 items")
+                .font(.regularFont(size: 16))
         }
+    }
+    
+    fileprivate var item : some View {
+        HStack{
+            Text("Default")
+            
+            Spacer()
+            
+            Text("Your Task")
+            
+            Spacer()
+            
+            Button {
+                
+            } label: {
+                Image(systemName: "arrow.up")
+                    .resizable()
+                    .frame(width: 12, height: 16)
+                    .foregroundColor(Color.onBackgroundSecondary)
+            }
+        }
+        .frame(width: .infinity)
+        .padding(.vertical, 14)
+        .padding(.horizontal, 16)
+        .background(Color.onBackgroundTertiary)
+        .cornerRadius(8)
     }
 }
 
