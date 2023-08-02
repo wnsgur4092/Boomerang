@@ -25,10 +25,10 @@ class NotificationHandler: NSObject, UIApplicationDelegate, UNUserNotificationCe
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .sound, .badge])
+        completionHandler([.banner, .list, .sound, .badge]) // 여기서 알림의 표시 방식을 설정합니다.
     }
     
-    func sendNotification(date: Date, type: String, timeInterval: Double = 0.2, title: String, body: String) {
+    func sendNotification(date: Date, type: String, timeInterval: Double = 1, title: String, body: String) {
         var trigger: UNNotificationTrigger?
 
         if type == "date" {
