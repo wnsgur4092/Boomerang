@@ -10,8 +10,11 @@ import PopupView
 import Foundation
 
 struct PopUpView: CentrePopup {
-    @State private var name: String = ""
+    //MARK: - PROPERTIES
+    @State private var task: String = ""
     @FocusState private var textFieldFocused
+    
+    @Environment(\.managedObjectContext) private var viewContext
     
     func configurePopup(popup: CentrePopupConfig) -> CentrePopupConfig {
         popup
@@ -55,7 +58,7 @@ private extension PopUpView {
         //            .foregroundColor(.onBackgroundPrimary)
     }
     func createTextField() -> some View {
-        TextField("Your name", text: $name)
+        TextField("Task?", text: $task)
         //            .font(.interBold(24))
         //            .foregroundColor(.onBackgroundPrimary)
             .multilineTextAlignment(.center)
@@ -80,7 +83,7 @@ private extension PopUpView {
     }
     
     func createSaveButton() -> some View {
-        Button(action: dismiss) {
+        Button(action: addItem) {
             Text("Send".uppercased())
             //                .font(.interBold(15))
                 .foregroundColor(.white)
@@ -90,6 +93,19 @@ private extension PopUpView {
                 .cornerRadius(8)
                 .padding(.horizontal, 24)
         }
+    }
+    
+    func addItem(){
+        let newTask = Item(context: viewContext)
+        newTask.id = UUID()
+        newTask.task = task
+        
+        do{
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+        self.dismiss()
     }
 }
 

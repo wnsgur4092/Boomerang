@@ -6,12 +6,24 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct HomeView: View {
+    //MARK: - PROPERTIES
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
+        animation: .default)
+    private var items: FetchedResults<Item>
+    
+    //MARK: - BODY
     var body: some View {
         header
         
-        item
+        ForEach(self.items, id: \.self) { item in
+            itemCard(taskName: item.task ?? "Error")
+        }
 
     }
     
@@ -27,13 +39,20 @@ struct HomeView: View {
         }
     }
     
-    fileprivate var item : some View {
+}
+
+struct itemCard : View {
+    var taskName : String
+//    var date : String
+//    var time : String
+
+    var body : some View {
         HStack{
             Text("Default")
             
             Spacer()
             
-            Text("Your Task")
+            Text(taskName)
             
             Spacer()
             
