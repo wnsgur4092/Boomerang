@@ -71,6 +71,7 @@ struct HomeView: View {
 
 struct itemCard : View {
     @Environment(\.managedObjectContext) private var viewContext
+    var notificationHandler = NotificationHandler() // NotificationHandler 인스턴스 생성
     
     var item : Item
     @State private var isSwiped: Bool = false
@@ -103,25 +104,34 @@ struct itemCard : View {
             }
             
             
-            
-            
-            
-            
-            HStack{
+            HStack(spacing: 0){
                 VStack(alignment:.leading){
                     Text(monthDay)
+                        .font(.boldFont(size: 20))
                     Text(time)
+                        .font(.regularFont(size: 16))
+                        .foregroundColor(.secondary)
                 }
                 
+                Divider()
+                    .frame(width: 1, height: 32)
+                    .padding(.horizontal, 12)
                 
-                Spacer()
                 
-                Text(item.task ?? "")
+                HStack{
+                    Text(item.task ?? "")
+                        .font(.regularFont(size: 18))
+                        .multilineTextAlignment(.leading)
+                        .lineLimit(1)
+                    
+                    Spacer()
+                }
+     
                 
                 Spacer()
                 
                 Button {
-                    
+                    notificationHandler.sendNotificationAgain(task: item.task ?? "")
                 } label: {
                     Image(systemName: "arrow.up")
                         .resizable()
@@ -153,18 +163,17 @@ struct itemCard : View {
         }
     }
     
-    func separateDateComponents(from date: Date) -> ( monthDay: String, time: String) {
+    func separateDateComponents(from date: Date) -> (monthDay: String, time: String) {
         let calendar = Calendar.current
-        
-        //        let year = calendar.component(.year, from: date)
-        let month = calendar.component(.month, from: date)
         let day = calendar.component(.day, from: date)
-        
+        let month = calendar.component(.month, from: date)
+
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale(identifier: "en_US") // 영어로 설정
         let time = dateFormatter.string(from: date)
-        
-        return (monthDay: "\(month)월 \(day)일", time: time)
+
+        return (monthDay: String(format: "%02d.%02d", day, month), time: time) // DD/MM 순서로 변경
     }
     
     func onChanged(value: DragGesture.Value) {
