@@ -104,16 +104,17 @@ private extension PopUpView {
             
             do {
                 try viewContext.save()
+                dismiss()
             } catch {
                 print(">>>>> Error saving task: \(error)")
                 print("More detailed error: \(error.localizedDescription)")
                 let nsError = error as NSError
                 print("Detailed error description: \(nsError.userInfo)")
             }
-
         }
-        // 빈 작업 항목을 생성하는 코드는 제거
     }
+    
+    
 }
 
 private extension PopUpView {

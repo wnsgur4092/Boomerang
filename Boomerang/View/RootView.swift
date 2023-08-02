@@ -20,6 +20,7 @@ struct RootView: View {
             CustomTabBar(selectedTab: $selectedTab)
         }
         .padding(.horizontal, 20)
+        .padding(.top, 20)
     }
     
  
