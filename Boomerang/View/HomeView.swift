@@ -27,9 +27,9 @@ struct HomeView: View {
     var body: some View {
         header
             .onAppear {
-                   // Asking for notification permission when the view appears
-//                   NotificationHandler().askPermission()
-               }
+                // Asking for notification permission when the view appears
+                //                   NotificationHandler().askPermission()
+            }
         
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(itemsGroupedByYear.sorted(by: { $0.key > $1.key }), id: \.key) { year, itemsInYear in
@@ -82,6 +82,7 @@ struct itemCard : View {
         
         ZStack{
             LinearGradient(gradient: .init(colors: [Color("lightblue"),Color("blue")]), startPoint: .leading, endPoint: .trailing)
+                .cornerRadius(8)
             
             // Delete Button..
             
@@ -90,14 +91,14 @@ struct itemCard : View {
                 Spacer()
                 
                 Button(action: {
-                  
-                        deleteItem()
+                    
+                    deleteItem()
                     
                 }) {
                     
                     Image(systemName: "trash")
                         .font(.title)
-                        .foregroundColor(.red)
+                        .foregroundColor(.white)
                     // default Frame....
                         .frame(width: 90, height: 50)
                 }
@@ -120,23 +121,27 @@ struct itemCard : View {
                 
                 HStack{
                     Text(item.task ?? "")
-                        .font(.regularFont(size: 18))
+                        .font(.mediumFont(size: 18))
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
                     
                     Spacer()
                 }
-     
+                
                 
                 Spacer()
                 
                 Button {
                     notificationHandler.sendNotificationAgain(task: item.task ?? "")
                 } label: {
+                    
                     Image(systemName: "arrow.up")
                         .resizable()
                         .frame(width: 12, height: 16)
                         .foregroundColor(Color.onBackgroundSecondary)
+                    
+                    
+                    
                 }
             }
             .zIndex(1)
@@ -146,10 +151,10 @@ struct itemCard : View {
             .cornerRadius(8)
             .offset(x: offset) // Applying the offset here
             .gesture(
-                        DragGesture()
-                            .onChanged(onChanged)
-                            .onEnded(onEnd)
-                    )
+                DragGesture()
+                    .onChanged(onChanged)
+                    .onEnded(onEnd)
+            )
         }
     }
     
@@ -167,12 +172,12 @@ struct itemCard : View {
         let calendar = Calendar.current
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
-
+        
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .short
         dateFormatter.locale = Locale(identifier: "en_US") // 영어로 설정
         let time = dateFormatter.string(from: date)
-
+        
         return (monthDay: String(format: "%02d.%02d", day, month), time: time) // DD/MM 순서로 변경
     }
     
@@ -185,7 +190,7 @@ struct itemCard : View {
             }
         }
     }
-
+    
     func onEnd(value: DragGesture.Value) {
         withAnimation(.easeOut) {
             if value.translation.width < 0 {
@@ -207,8 +212,8 @@ struct itemCard : View {
             }
         }
     }
-
-
+    
+    
     
     
 }
