@@ -26,6 +26,10 @@ struct HomeView: View {
     //MARK: - BODY
     var body: some View {
         header
+            .onAppear {
+                   // Asking for notification permission when the view appears
+//                   NotificationHandler().askPermission()
+               }
         
         ScrollView(.vertical, showsIndicators: false) {
             ForEach(itemsGroupedByYear.sorted(by: { $0.key > $1.key }), id: \.key) { year, itemsInYear in
@@ -73,7 +77,7 @@ struct itemCard : View {
     @State private var offset: CGFloat = 0
     
     var body : some View {
-        let (monthDay, time) = separateDateComponents(from: item.timestamp!)
+        let (monthDay, time) = separateDateComponents(from: item.timestamp ?? Date())
         
         ZStack{
             LinearGradient(gradient: .init(colors: [Color("lightblue"),Color("blue")]), startPoint: .leading, endPoint: .trailing)
@@ -85,9 +89,9 @@ struct itemCard : View {
                 Spacer()
                 
                 Button(action: {
-                    withAnimation(.easeIn){
+                  
                         deleteItem()
-                    }
+                    
                 }) {
                     
                     Image(systemName: "trash")
@@ -125,6 +129,7 @@ struct itemCard : View {
                         .foregroundColor(Color.onBackgroundSecondary)
                 }
             }
+            .zIndex(1)
             .padding(.vertical, 14)
             .padding(.horizontal, 16)
             .background(Color.onBackgroundTertiary)
@@ -171,11 +176,16 @@ struct itemCard : View {
             }
         }
     }
-    
+
     func onEnd(value: DragGesture.Value) {
         withAnimation(.easeOut) {
             if value.translation.width < 0 {
-                if -offset > 50 {
+                if -value.translation.width > UIScreen.main.bounds.width / 2 {
+                    offset = -1000
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+                        deleteItem()
+                    }
+                } else if -offset > 50 {
                     isSwiped = true
                     offset = -90
                 } else {
@@ -188,6 +198,8 @@ struct itemCard : View {
             }
         }
     }
+
+
     
     
 }

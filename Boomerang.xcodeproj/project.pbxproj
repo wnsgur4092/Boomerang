@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		BF3307B72A74DE360044D4A1 /* BoomerangApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */; };
-		BF3307B92A74DE360044D4A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307B82A74DE360044D4A1 /* ContentView.swift */; };
 		BF3307BB2A74DE370044D4A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3307BA2A74DE370044D4A1 /* Assets.xcassets */; };
 		BF3307BE2A74DE370044D4A1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF3307BD2A74DE370044D4A1 /* Preview Assets.xcassets */; };
 		BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3307BF2A74DE370044D4A1 /* Persistence.swift */; };
@@ -23,13 +22,13 @@
 		BF3307E22A7504860044D4A1 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307DF2A7504860044D4A1 /* Poppins-Bold.ttf */; };
 		BF3307E32A7504860044D4A1 /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307E02A7504860044D4A1 /* Poppins-Medium.ttf */; };
 		BF3307E42A7504860044D4A1 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */; };
+		BF78748F2A7A3099003CD75C /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78748E2A7A3099003CD75C /* NotificationHandler.swift */; };
 		BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9BD7A2A79241A001D43AC /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BF3307B32A74DE360044D4A1 /* Boomerang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Boomerang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoomerangApp.swift; sourceTree = "<group>"; };
-		BF3307B82A74DE360044D4A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BF3307BA2A74DE370044D4A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF3307BD2A74DE370044D4A1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		BF3307BF2A74DE370044D4A1 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		BF3307E02A7504860044D4A1 /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		BF3307E52A7504990044D4A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		BF78748E2A7A3099003CD75C /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		BFA9BD7A2A79241A001D43AC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../../Documents/Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,7 +81,7 @@
 				BF3307E52A7504990044D4A1 /* Info.plist */,
 				BF3307DE2A7504240044D4A1 /* Fonts */,
 				BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */,
-				BF3307B82A74DE360044D4A1 /* ContentView.swift */,
+				BF78748D2A7A3084003CD75C /* Handlers */,
 				BF3307D22A74E9F80044D4A1 /* Helpers */,
 				BF3307CD2A74E8EB0044D4A1 /* View */,
 				BF3307BA2A74DE370044D4A1 /* Assets.xcassets */,
@@ -137,6 +137,14 @@
 				BF3307E12A7504860044D4A1 /* Poppins-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		BF78748D2A7A3084003CD75C /* Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				BF78748E2A7A3099003CD75C /* NotificationHandler.swift */,
+			);
+			path = Handlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,10 +227,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3307D42A74EA030044D4A1 /* Fonts.swift in Sources */,
+				BF78748F2A7A3099003CD75C /* NotificationHandler.swift in Sources */,
 				BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */,
 				BF3307C32A74DE370044D4A1 /* Boomerang.xcdatamodeld in Sources */,
 				BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */,
-				BF3307B92A74DE360044D4A1 /* ContentView.swift in Sources */,
 				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
 				BF3307DD2A74FA880044D4A1 /* PopUpView.swift in Sources */,
 				BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */,

@@ -37,7 +37,7 @@ struct PopUpView: CentrePopup {
                 createSaveButton()
             }
             .padding(.bottom, 24)
-       
+            
             //            Spacer.height(24)
         }
         .onAppear(perform: onAppear)
@@ -102,9 +102,17 @@ private extension PopUpView {
             newTask.task = task
             newTask.timestamp = Date()
             
+            let notificationHandler = NotificationHandler()
+//            notificationHandler.sendNotification(with: newTask.task ?? "") // Calling sendNotification method
+            notificationHandler.sendNotification(date: Date(), type: "time", title: "Boomerang", body: task)// Calling sendNotification method
+            
+            
+            
+            dismiss()
+            
             do {
                 try viewContext.save()
-                dismiss()
+                
             } catch {
                 print(">>>>> Error saving task: \(error)")
                 print("More detailed error: \(error.localizedDescription)")
