@@ -28,16 +28,32 @@ struct HomeView: View {
         header
             .onAppear {
                 // Asking for notification permission when the view appears
-                //                   NotificationHandler().askPermission()
+                // NotificationHandler().askPermission()
             }
         
-        ScrollView(.vertical, showsIndicators: false) {
-            ForEach(itemsGroupedByYear.sorted(by: { $0.key > $1.key }), id: \.key) { year, itemsInYear in
-                Section(header: yearView(for: year)) {
-                    ForEach(itemsInYear, id: \.self) { item in
-                        itemCard(item: item)
+        if items.isEmpty { // 아이템이 없는 경우
+            VStack(spacing: 4) {
+                HStack{
+                    Text("Tap the")
+                    Image(systemName: "plus.circle.fill")
+                        .resizable()
+                        .frame(width: 20, height: 20)
+                        .scaledToFit()
+                    Text("button")
+                }
+                Text("below to create a new task")
+            }
+            .font(.regularFont(size: 18))
+            .foregroundColor(.onBackgroundSecondary)
+            .padding()
+        } else {
+            ScrollView(.vertical, showsIndicators: false) {
+                ForEach(itemsGroupedByYear.sorted(by: { $0.key > $1.key }), id: \.key) { year, itemsInYear in
+                    Section(header: yearView(for: year)) {
+                        ForEach(itemsInYear, id: \.self) { item in
+                            itemCard(item: item)
+                        }
                     }
-                    
                 }
             }
         }
@@ -116,11 +132,11 @@ struct itemCard : View {
                         .foregroundColor(.secondary)
                 }
                 .frame(width: 60) // 너비를 고정 (필요한 경우 값을 조정하세요)
-
+                
                 Divider()
                     .frame(width: 1, height: 32)
                     .padding(.horizontal, 12) // 좌우 간격 설정
-
+                
                 HStack {
                     Text(item.task ?? "")
                         .font(.mediumFont(size: 18))
