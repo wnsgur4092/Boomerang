@@ -22,31 +22,36 @@ struct PopUpView: CentrePopup {
     
     func createContent() -> some View {
         VStack(spacing: 0) {
-            //            Spacer.height(24)
-            //            createIllustration()
-            //            Spacer.height(20)
+            Spacer.height(24)
+            createIllustration()
+                .padding(.vertical, 20)
+            
             createHeader()
                 .padding(.top, 24)
                 .padding(.bottom, 20)
-            //            Spacer.height(8)
+            
+            
+            
             createTextField()
-                .padding(.bottom, 32)
-            //            Spacer.height(32)
-            HStack{
+                .padding(.vertical, 32)
+            
+            Spacer.height(32)
+            
+            HStack(spacing: 24){
                 createCancelButton()
                 createSaveButton()
             }
-            .padding(.bottom, 24)
             
-            //            Spacer.height(24)
+            Spacer.height(24)
         }
+        .padding(.horizontal, 20)
         .onAppear(perform: onAppear)
     }
 }
 
 private extension PopUpView {
     func createIllustration() -> some View {
-        Image("dotty-1")
+        Image("boomerang")
             .resizable()
             .aspectRatio(contentMode: .fit)
             .frame(height: 100)
@@ -55,12 +60,13 @@ private extension PopUpView {
         Text("Boomerang:")
             .font(.boldFont(size: 18))
         //            .font(.interBold(18))
-        //            .foregroundColor(.onBackgroundPrimary)
+            .foregroundColor(.onBackgroundPrimary)
     }
     func createTextField() -> some View {
         TextField("Task?", text: $task)
-        //            .font(.interBold(24))
-        //            .foregroundColor(.onBackgroundPrimary)
+            .font(.mediumFont(size: 24))
+            .foregroundColor(.onBackgroundPrimary)
+        
             .multilineTextAlignment(.center)
             .padding(.horizontal, 24)
             .frame(maxWidth: .infinity)
@@ -72,28 +78,32 @@ private extension PopUpView {
             dismiss()
         } label: {
             Text("Cancel".uppercased())
-            //                .font(.interBold(15))
+                .font(.boldFont(size: 16))
                 .foregroundColor(.white)
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
+            
                 .background(Color.gray)
                 .cornerRadius(8)
-                .padding(.horizontal, 24)
+            
         }
     }
     
     func createSaveButton() -> some View {
         Button(action: addItem) {
             Text("Send".uppercased())
-            //                .font(.interBold(15))
-                .foregroundColor(.white)
+                .font(.boldFont(size: 16))
+                .foregroundColor(task.isEmpty ? Color.blue : Color.white)
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
-                .background(Color.primary)
-                .cornerRadius(8)
-                .padding(.horizontal, 24)
         }
+        .background(task.isEmpty ? Color.clear : Color.blue) // 배경 조건 설정
+        .overlay(RoundedRectangle(cornerRadius: 8) // 테두리 추가
+            .stroke(task.isEmpty ? Color.blue : Color.clear, lineWidth: 2)) // 테두리 조건 설정
+        .cornerRadius(8)
+        .disabled(task.isEmpty) // task가 비어 있으면 비활성화
     }
+    
     
     func addItem() {
         if self.task != "" {
@@ -103,7 +113,7 @@ private extension PopUpView {
             newTask.timestamp = Date()
             
             let notificationHandler = NotificationHandler()
-//            notificationHandler.sendNotification(with: newTask.task ?? "") // Calling sendNotification method
+            //            notificationHandler.sendNotification(with: newTask.task ?? "") // Calling sendNotification method
             notificationHandler.sendNotification(date: Date(), type: "time", title: "Boomerang", body: task)// Calling sendNotification method
             
             

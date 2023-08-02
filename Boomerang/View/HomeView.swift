@@ -48,7 +48,8 @@ struct HomeView: View {
     private func yearView(for year: String) -> some View {
         HStack {
             Text(year)
-                .font(.headline)
+                .font(.mediumFont(size: 24))
+                .foregroundColor(.onBackgroundSecondary)
             
             Spacer()
         }
@@ -105,26 +106,26 @@ struct itemCard : View {
             }
             
             
-            HStack(spacing: 0){
-                VStack(alignment:.leading){
+            HStack(spacing: 0) {
+                // 고정된 너비를 가진 컨테이너
+                VStack(alignment: .leading) {
                     Text(monthDay)
                         .font(.boldFont(size: 20))
                     Text(time)
                         .font(.regularFont(size: 16))
                         .foregroundColor(.secondary)
                 }
-                
+                .frame(width: 60) // 너비를 고정 (필요한 경우 값을 조정하세요)
+
                 Divider()
                     .frame(width: 1, height: 32)
-                    .padding(.horizontal, 12)
-                
-                
-                HStack{
+                    .padding(.horizontal, 12) // 좌우 간격 설정
+
+                HStack {
                     Text(item.task ?? "")
                         .font(.mediumFont(size: 18))
                         .multilineTextAlignment(.leading)
                         .lineLimit(1)
-                    
                     Spacer()
                 }
                 
@@ -212,10 +213,6 @@ struct itemCard : View {
             }
         }
     }
-    
-    
-    
-    
 }
 
 struct HomeView_Previews: PreviewProvider {
