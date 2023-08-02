@@ -22,7 +22,7 @@ struct HomeView: View {
         header
         
         ForEach(self.items, id: \.self) { item in
-            itemCard(taskName: item.task ?? "Error")
+            itemCard(taskName: item.task ?? ">>>> Error")
         }
 
     }
@@ -65,7 +65,6 @@ struct itemCard : View {
                     .foregroundColor(Color.onBackgroundSecondary)
             }
         }
-        .frame(width: .infinity)
         .padding(.vertical, 14)
         .padding(.horizontal, 16)
         .background(Color.onBackgroundTertiary)

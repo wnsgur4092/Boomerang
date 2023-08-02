@@ -11,7 +11,7 @@ import Foundation
 
 struct PopUpView: CentrePopup {
     //MARK: - PROPERTIES
-    @State private var task: String = ""
+    @State var task: String = ""
     @FocusState private var textFieldFocused
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -95,17 +95,24 @@ private extension PopUpView {
         }
     }
     
-    func addItem(){
-        let newTask = Item(context: viewContext)
-        newTask.id = UUID()
-        newTask.task = task
-        
-        do{
-            try viewContext.save()
-        } catch {
-            print(error)
+    func addItem() {
+        if self.task != "" {
+            let newTask = Item(context: viewContext)
+            newTask.id = UUID()
+            newTask.task = task
+            newTask.timestamp = Date()
+            
+            do {
+                try viewContext.save()
+            } catch {
+                print(">>>>> Error saving task: \(error)")
+                print("More detailed error: \(error.localizedDescription)")
+                let nsError = error as NSError
+                print("Detailed error description: \(nsError.userInfo)")
+            }
+
         }
-        self.dismiss()
+        // 빈 작업 항목을 생성하는 코드는 제거
     }
 }
 

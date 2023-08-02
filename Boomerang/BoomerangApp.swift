@@ -15,7 +15,9 @@ struct BoomerangApp: App {
     var body: some Scene {
         
         WindowGroup {
-            RootView().implementPopupView(config: configurePopup)
+            RootView()
+                .implementPopupView(config: configurePopup)
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         //        WindowGroup {
         //            RootView()
