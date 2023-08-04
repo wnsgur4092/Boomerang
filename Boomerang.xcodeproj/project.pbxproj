@@ -25,6 +25,7 @@
 		BF78748F2A7A3099003CD75C /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78748E2A7A3099003CD75C /* NotificationHandler.swift */; };
 		BF7874982A7AA093003CD75C /* Spacers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7874972A7AA093003CD75C /* Spacers.swift */; };
 		BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9BD7A2A79241A001D43AC /* Colors.swift */; };
+		BFCD0A942A7D326B00E4EEDC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD0A932A7D326B00E4EEDC /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		BF78748E2A7A3099003CD75C /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		BF7874972A7AA093003CD75C /* Spacers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacers.swift; sourceTree = "<group>"; };
 		BFA9BD7A2A79241A001D43AC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../../Documents/Colors.swift; sourceTree = "<group>"; };
+		BFCD0A932A7D326B00E4EEDC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				BF3307D02A74E9220044D4A1 /* RootView.swift */,
+				BFCD0A932A7D326B00E4EEDC /* SettingView.swift */,
 				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
 				BF3307DC2A74FA880044D4A1 /* PopUpView.swift */,
 				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
@@ -237,6 +240,7 @@
 				BF7874982A7AA093003CD75C /* Spacers.swift in Sources */,
 				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
 				BF3307DD2A74FA880044D4A1 /* PopUpView.swift in Sources */,
+				BFCD0A942A7D326B00E4EEDC /* SettingView.swift in Sources */,
 				BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */,
 				BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */,
 				BF3307CF2A74E8F50044D4A1 /* CustomTabBar.swift in Sources */,

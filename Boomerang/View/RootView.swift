@@ -13,7 +13,11 @@ struct RootView: View {
         VStack{
             if selectedTab == .home {
                 HomeView()
+            } else {
+                SettingView()
             }
+            
+            
             
             Spacer()
 
