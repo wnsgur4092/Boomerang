@@ -63,7 +63,7 @@ private extension PopUpView {
             .foregroundColor(.onBackgroundPrimary)
     }
     func createTextField() -> some View {
-        TextField("Task?", text: $task)
+        TextField("??", text: $task)
             .font(.mediumFont(size: 24))
             .foregroundColor(.onBackgroundPrimary)
         

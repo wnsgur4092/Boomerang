@@ -26,7 +26,7 @@ struct CustomTabBar: View {
                 TabBarButton(buttonText: "Home", ImageName: "house", isActive: selectedTab == .home)
             }
             .tint(Color.gray)
-            
+
             Button {
                 PopUpView().showAndStack()
             } label: {

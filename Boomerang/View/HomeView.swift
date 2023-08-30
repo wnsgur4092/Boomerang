@@ -126,9 +126,9 @@ struct itemCard : View {
                 // 고정된 너비를 가진 컨테이너
                 VStack(alignment: .leading) {
                     Text(monthDay)
-                        .font(.boldFont(size: 20))
+                        .font(.boldFont(size: 16))
                     Text(time)
-                        .font(.regularFont(size: 16))
+                        .font(.regularFont(size: 14))
                         .foregroundColor(.secondary)
                 }
                 .frame(width: 60) // 너비를 고정 (필요한 경우 값을 조정하세요)
