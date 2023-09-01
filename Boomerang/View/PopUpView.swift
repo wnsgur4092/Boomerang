@@ -93,15 +93,15 @@ private extension PopUpView {
         Button(action: addItem) {
             Text("Send".uppercased())
                 .font(.boldFont(size: 16))
-                .foregroundColor(task.isEmpty ? Color.blue : Color.white)
+                .foregroundColor(task.isEmpty ? Color.onMainColor : Color.white)
                 .padding(.vertical, 14)
                 .frame(maxWidth: .infinity)
         }
-        .background(task.isEmpty ? Color.clear : Color.blue) // 배경 조건 설정
-        .overlay(RoundedRectangle(cornerRadius: 8) // 테두리 추가
-            .stroke(task.isEmpty ? Color.blue : Color.clear, lineWidth: 2)) // 테두리 조건 설정
+        .background(task.isEmpty ? Color.clear : Color.onMainColor)
+        .overlay(RoundedRectangle(cornerRadius: 8)
+            .stroke(task.isEmpty ? Color.onMainColor : Color.clear, lineWidth: 2))
         .cornerRadius(8)
-        .disabled(task.isEmpty) // task가 비어 있으면 비활성화
+        .disabled(task.isEmpty)
     }
     
     
@@ -131,8 +131,6 @@ private extension PopUpView {
             }
         }
     }
-    
-    
 }
 
 private extension PopUpView {

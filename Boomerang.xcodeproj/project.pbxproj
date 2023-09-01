@@ -26,6 +26,10 @@
 		BF7874982A7AA093003CD75C /* Spacers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7874972A7AA093003CD75C /* Spacers.swift */; };
 		BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9BD7A2A79241A001D43AC /* Colors.swift */; };
 		BFCD0A942A7D326B00E4EEDC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD0A932A7D326B00E4EEDC /* SettingView.swift */; };
+		BFEC79E02AA1885000F85F0A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79DF2AA1885000F85F0A /* HeaderView.swift */; };
+		BFEC79E42AA18ABB00F85F0A /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */; };
+		BFEC79E62AA1934300F85F0A /* ItemCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79E52AA1934300F85F0A /* ItemCardViewModel.swift */; };
+		BFEC79EB2AA19ABC00F85F0A /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79EA2AA19ABC00F85F0A /* SettingViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +53,10 @@
 		BF7874972A7AA093003CD75C /* Spacers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacers.swift; sourceTree = "<group>"; };
 		BFA9BD7A2A79241A001D43AC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../../Documents/Colors.swift; sourceTree = "<group>"; };
 		BFCD0A932A7D326B00E4EEDC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		BFEC79DF2AA1885000F85F0A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
+		BFEC79E52AA1934300F85F0A /* ItemCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardViewModel.swift; sourceTree = "<group>"; };
+		BFEC79EA2AA19ABC00F85F0A /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 				BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */,
 				BF78748D2A7A3084003CD75C /* Handlers */,
 				BF3307D22A74E9F80044D4A1 /* Helpers */,
+				BFEC79E72AA1960F00F85F0A /* ViewModel */,
 				BF3307CD2A74E8EB0044D4A1 /* View */,
 				BF3307BA2A74DE370044D4A1 /* Assets.xcassets */,
 				BF3307BF2A74DE370044D4A1 /* Persistence.swift */,
@@ -117,9 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				BF3307D02A74E9220044D4A1 /* RootView.swift */,
-				BFCD0A932A7D326B00E4EEDC /* SettingView.swift */,
 				BF3307C92A74E41C0044D4A1 /* HomeView.swift */,
+				BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */,
 				BF3307DC2A74FA880044D4A1 /* PopUpView.swift */,
+				BFEC79DF2AA1885000F85F0A /* HeaderView.swift */,
+				BFCD0A932A7D326B00E4EEDC /* SettingView.swift */,
 				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
 			);
 			path = View;
@@ -151,6 +162,15 @@
 				BF78748E2A7A3099003CD75C /* NotificationHandler.swift */,
 			);
 			path = Handlers;
+			sourceTree = "<group>";
+		};
+		BFEC79E72AA1960F00F85F0A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFEC79E52AA1934300F85F0A /* ItemCardViewModel.swift */,
+				BFEC79EA2AA19ABC00F85F0A /* SettingViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,9 +253,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF3307D42A74EA030044D4A1 /* Fonts.swift in Sources */,
+				BFEC79E42AA18ABB00F85F0A /* ItemCardView.swift in Sources */,
 				BF78748F2A7A3099003CD75C /* NotificationHandler.swift in Sources */,
 				BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */,
 				BF3307C32A74DE370044D4A1 /* Boomerang.xcdatamodeld in Sources */,
+				BFEC79E62AA1934300F85F0A /* ItemCardViewModel.swift in Sources */,
+				BFEC79EB2AA19ABC00F85F0A /* SettingViewModel.swift in Sources */,
 				BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */,
 				BF7874982A7AA093003CD75C /* Spacers.swift in Sources */,
 				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
@@ -245,6 +268,7 @@
 				BF3307D12A74E9220044D4A1 /* RootView.swift in Sources */,
 				BF3307CF2A74E8F50044D4A1 /* CustomTabBar.swift in Sources */,
 				BF3307B72A74DE360044D4A1 /* BoomerangApp.swift in Sources */,
+				BFEC79E02AA1885000F85F0A /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,59 +11,50 @@ import UIKit
 import CoreData // Import CoreData
 
 struct SettingView: View {
-    @Environment(\.managedObjectContext) private var viewContext 
-    @State private var showAlert = false // Track whether to show the alert or not
-
+    //MARK: - PROPERTIES
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject private var viewModel: SettingViewModel
+    
+    init(viewModel: SettingViewModel) {
+        self.viewModel = viewModel
+    }
+    
+    //MARK: - BODY
     var body: some View {
-        VStack{
+        VStack {
             header
             
             VStack(spacing: 32) {
-                notificationURL
+                notificationURLButton
                 deleteAllButton
             }
-            .alert(isPresented: $showAlert) {
+            .alert(isPresented: $viewModel.showAlert) {
                 Alert(
                     title: Text("Delete All Data"),
                     message: Text("Are you sure you want to delete all Boomerangs?"),
                     primaryButton: .default(Text("Cancel")),
                     secondaryButton: .destructive(Text("Delete"), action: {
-                        // Call the function to delete all data
-                        deleteAllData()
+                        viewModel.deleteAllData()
                     })
                 )
             }
         }
-        
-
     }
     
+    //MARK: - COMPONENTS
     fileprivate var header: some View {
-        HStack(spacing: 0) {
-            Text("Setting")
-                .font(.boldFont(size: 24))
-            
-            Spacer()
-            
-            Text("Version 1.0")
-                .font(.regularFont(size: 16))
-        }
+        HeaderView(title: "Setting", itemCount: nil)
     }
     
-    fileprivate var notificationURL : some View {
-        VStack{
-            HStack{
-                
+    fileprivate var notificationURLButton: some View {
+        VStack {
+            HStack {
                 Button(action: {
-                    // Open the app's notification settings
-                    if let settingsUrl = URL(string: UIApplication.openSettingsURLString) {
-                        UIApplication.shared.open(settingsUrl)
-                    }
+                    viewModel.openNotificationSettings()
                 }) {
                     Text("Open Notification Settings")
-                        .foregroundColor(.blue)
+                        .foregroundColor(.onMainColor)
                 }
-                
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
@@ -74,7 +65,6 @@ struct SettingView: View {
             Text("To enable notifications, please turn on Allow Notifications.")
                 .font(.regularFont(size: 14))
                 .foregroundColor(.secondary)
-
         }
     }
     
@@ -82,7 +72,7 @@ struct SettingView: View {
         VStack {
             HStack {
                 Button(action: {
-                    showAlert = true // Show the alert when the button is clicked
+                    viewModel.showAlert = true
                 }) {
                     Text("Delete All")
                         .foregroundColor(.red)
@@ -93,36 +83,20 @@ struct SettingView: View {
             .padding(.horizontal, 16)
             .background(Color.onBackgroundTertiary)
             .cornerRadius(8)
-
+            
             Text("Delete all Boomerangs")
                 .font(.regularFont(size: 14))
                 .foregroundColor(.secondary)
-
-                
         }
     }
+}
 
-      // Function to delete all data from CoreData
-      private func deleteAllData() {
-          let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Item") // Replace "YourEntityName" with the actual name of your CoreData entity
-          
-          let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-          
-          do {
-              try viewContext.execute(deleteRequest)
-              try viewContext.save() // Save the context to commit the changes
-              print("All data deleted successfully.")
-          } catch {
-              print("Error deleting data: \(error)")
-          }
-      }
-  }
-
-
-
+//MARK: - PREVIEW
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingView()
+        let viewModel = SettingViewModel(viewContext: NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType))
+        return SettingView(viewModel: viewModel)
     }
 }
+
 

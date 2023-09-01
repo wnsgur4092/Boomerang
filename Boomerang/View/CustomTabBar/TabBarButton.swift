@@ -19,7 +19,7 @@ struct TabBarButton: View {
             
             if isActive {
                 Rectangle()
-                    .foregroundColor(.blue)
+                    .foregroundColor(.onMainColor)
                     .frame(width: geo.size.width/2, height: 4)
                     .padding(.leading, geo.size.width / 4)
             }

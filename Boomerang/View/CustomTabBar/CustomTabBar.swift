@@ -7,6 +7,7 @@
 
 import SwiftUI
 import PopupView
+import CoreData
 
 enum Tabs : Int {
     case home = 0
@@ -16,6 +17,7 @@ enum Tabs : Int {
 struct CustomTabBar: View {
     //MARK: - PROPERTIES
     @Binding var selectedTab : Tabs
+    var viewContext: NSManagedObjectContext
     
     //MARK: - BODY
     var body: some View {
@@ -40,7 +42,7 @@ struct CustomTabBar: View {
                         .font(Font.tabBar)
                 }
             }
-            .tint(Color.blue)
+            .tint(Color.onMainColor)
             
             Button {
                 selectedTab = .setting
@@ -56,6 +58,7 @@ struct CustomTabBar: View {
 
 struct CustomTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        CustomTabBar(selectedTab: .constant(.home))
+        let viewContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+        return CustomTabBar(selectedTab: .constant(.home), viewContext: viewContext)
     }
 }
