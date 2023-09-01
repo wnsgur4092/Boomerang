@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreData
 
+
 struct HomeView: View {
     //MARK: - PROPERTIES
     @Environment(\.managedObjectContext) private var viewContext

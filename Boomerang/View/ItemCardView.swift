@@ -53,7 +53,7 @@ struct itemCard : View {
                     .onEnded(viewModel.onEnd)
             )
         }
-        .frame(height: 70)
+        .frame(height: 64)
     }
     
     //MARK: - COMPONENTS

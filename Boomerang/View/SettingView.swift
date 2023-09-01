@@ -8,12 +8,13 @@
 import SwiftUI
 import UserNotifications
 import UIKit
-import CoreData // Import CoreData
+import CoreData
 
 struct SettingView: View {
     //MARK: - PROPERTIES
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject private var viewModel: SettingViewModel
+    @State var showToast = false
     
     init(viewModel: SettingViewModel) {
         self.viewModel = viewModel
@@ -35,6 +36,7 @@ struct SettingView: View {
                     primaryButton: .default(Text("Cancel")),
                     secondaryButton: .destructive(Text("Delete"), action: {
                         viewModel.deleteAllData()
+                        self.showToast.toggle()
                     })
                 )
             }
@@ -42,6 +44,7 @@ struct SettingView: View {
     }
     
     //MARK: - COMPONENTS
+    
     fileprivate var header: some View {
         HeaderView(title: "Setting", itemCount: nil)
     }
