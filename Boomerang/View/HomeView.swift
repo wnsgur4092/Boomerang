@@ -56,6 +56,8 @@ struct HomeView: View {
     
     fileprivate var emptyView : some View {
         VStack(spacing: 4) {
+            Spacer()
+            
             HStack{
                 Text("Tap the")
                 Image(systemName: "plus.circle.fill")
@@ -65,6 +67,8 @@ struct HomeView: View {
                 Text("button")
             }
             Text("below to create a new task")
+            
+            Spacer()
         }
         .font(.regularFont(size: 18))
         .foregroundColor(.onBackgroundSecondary)
