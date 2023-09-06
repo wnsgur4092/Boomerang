@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     let title: String
     let itemCount: Int?
-    
+
     var body: some View {
         HStack(spacing: 0) {
             Text(title)
@@ -22,7 +22,7 @@ struct HeaderView: View {
                 Text("\(itemCount) items")
                     .font(.regularFont(size: 16))
             } else {
-                Text("Version 1.0")
+                Text(String(format: "Version %.1f", Version.current))
                     .font(.regularFont(size: 16))
             }
         }

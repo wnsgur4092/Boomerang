@@ -25,6 +25,7 @@
 		BF78748F2A7A3099003CD75C /* NotificationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF78748E2A7A3099003CD75C /* NotificationHandler.swift */; };
 		BF7874982A7AA093003CD75C /* Spacers.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7874972A7AA093003CD75C /* Spacers.swift */; };
 		BFA9BD7B2A79241A001D43AC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFA9BD7A2A79241A001D43AC /* Colors.swift */; };
+		BFC4DE742AA804EE0007047A /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC4DE732AA804EE0007047A /* Version.swift */; };
 		BFCD0A942A7D326B00E4EEDC /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCD0A932A7D326B00E4EEDC /* SettingView.swift */; };
 		BFEC79E02AA1885000F85F0A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79DF2AA1885000F85F0A /* HeaderView.swift */; };
 		BFEC79E42AA18ABB00F85F0A /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */; };
@@ -52,6 +53,7 @@
 		BF78748E2A7A3099003CD75C /* NotificationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationHandler.swift; sourceTree = "<group>"; };
 		BF7874972A7AA093003CD75C /* Spacers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacers.swift; sourceTree = "<group>"; };
 		BFA9BD7A2A79241A001D43AC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Colors.swift; path = ../../../../Documents/Colors.swift; sourceTree = "<group>"; };
+		BFC4DE732AA804EE0007047A /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		BFCD0A932A7D326B00E4EEDC /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		BFEC79DF2AA1885000F85F0A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				BF3307E52A7504990044D4A1 /* Info.plist */,
 				BF3307DE2A7504240044D4A1 /* Fonts */,
 				BF3307B62A74DE360044D4A1 /* BoomerangApp.swift */,
+				BFC4DE732AA804EE0007047A /* Version.swift */,
 				BF78748D2A7A3084003CD75C /* Handlers */,
 				BF3307D22A74E9F80044D4A1 /* Helpers */,
 				BFEC79E72AA1960F00F85F0A /* ViewModel */,
@@ -262,6 +265,7 @@
 				BF3307C02A74DE370044D4A1 /* Persistence.swift in Sources */,
 				BF7874982A7AA093003CD75C /* Spacers.swift in Sources */,
 				BF3307CA2A74E41C0044D4A1 /* HomeView.swift in Sources */,
+				BFC4DE742AA804EE0007047A /* Version.swift in Sources */,
 				BF3307DD2A74FA880044D4A1 /* PopUpView.swift in Sources */,
 				BFCD0A942A7D326B00E4EEDC /* SettingView.swift in Sources */,
 				BF3307D82A74F15A0044D4A1 /* TabBarButton.swift in Sources */,
@@ -401,6 +405,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boomerang/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -409,7 +414,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -433,6 +438,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Boomerang/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -441,7 +447,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
