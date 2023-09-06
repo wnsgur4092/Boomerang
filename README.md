@@ -1,7 +1,7 @@
 # Boomerang
 Send your thoughts flying and receive them as instant notifications
 
-Development periold: 05.01.2023 ~ 06.02.2023
+Development periold: 29.07.2023 ~ 06.09.2023
 
 [![appStore](https://user-images.githubusercontent.com/50910456/173174832-7d395623-ceb3-4796-b718-22e550af6934.svg)](https://apps.apple.com/au/app/boomerang-reminder/id6464021812)
 
