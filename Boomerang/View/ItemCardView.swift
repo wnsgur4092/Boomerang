@@ -10,6 +10,8 @@ import CoreData
 
 struct itemCard : View {
     //MARK: - PROPERTIES
+    @Environment(\.colorScheme) var colorScheme
+    
     @Environment(\.managedObjectContext) private var viewContext
     var notificationHandler = NotificationHandler()
     @ObservedObject var viewModel: ItemCardViewModel
@@ -77,9 +79,10 @@ struct itemCard : View {
         return VStack(alignment: .leading) {
             Text(monthDay)
                 .font(.boldFont(size: 16))
+                .foregroundColor(colorScheme == .dark ? Color.onBackgroundPrimary : Color.primary)
             Text(time)
                 .font(.regularFont(size: 14))
-                .foregroundColor(.secondary)
+                .foregroundColor(colorScheme == .dark ? Color.onBackgroundSecondary : Color.secondary)
         }
         .frame(width: 60)
     }
@@ -88,6 +91,7 @@ struct itemCard : View {
         HStack {
             Text(item.task ?? "")
                 .font(.mediumFont(size: 18))
+                .foregroundColor(colorScheme == .dark ? Color.black : Color.primary)
                 .multilineTextAlignment(.leading)
                 .lineLimit(1)
             Spacer()

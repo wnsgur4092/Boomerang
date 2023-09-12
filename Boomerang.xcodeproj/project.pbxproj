@@ -31,6 +31,7 @@
 		BFEC79E42AA18ABB00F85F0A /* ItemCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */; };
 		BFEC79E62AA1934300F85F0A /* ItemCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79E52AA1934300F85F0A /* ItemCardViewModel.swift */; };
 		BFEC79EB2AA19ABC00F85F0A /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEC79EA2AA19ABC00F85F0A /* SettingViewModel.swift */; };
+		BFFDF6682AB023FC00EB98FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFFDF6672AB023FC00EB98FD /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		BFEC79E32AA18ABB00F85F0A /* ItemCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardView.swift; sourceTree = "<group>"; };
 		BFEC79E52AA1934300F85F0A /* ItemCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCardViewModel.swift; sourceTree = "<group>"; };
 		BFEC79EA2AA19ABC00F85F0A /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
+		BFFDF6672AB023FC00EB98FD /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				BF3307DC2A74FA880044D4A1 /* PopUpView.swift */,
 				BFEC79DF2AA1885000F85F0A /* HeaderView.swift */,
 				BFCD0A932A7D326B00E4EEDC /* SettingView.swift */,
+				BFFDF6672AB023FC00EB98FD /* LaunchScreen.storyboard */,
 				BF3307CC2A74E8DF0044D4A1 /* CustomTabBar */,
 			);
 			path = View;
@@ -243,6 +246,7 @@
 				BF3307BE2A74DE370044D4A1 /* Preview Assets.xcassets in Resources */,
 				BF3307E32A7504860044D4A1 /* Poppins-Medium.ttf in Resources */,
 				BF3307E22A7504860044D4A1 /* Poppins-Bold.ttf in Resources */,
+				BFFDF6682AB023FC00EB98FD /* LaunchScreen.storyboard in Resources */,
 				BF3307BB2A74DE370044D4A1 /* Assets.xcassets in Resources */,
 				BF3307E42A7504860044D4A1 /* Poppins-Regular.ttf in Resources */,
 			);
@@ -408,13 +412,14 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -441,13 +446,14 @@
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = au.edu.uts.student.Boomerang;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
