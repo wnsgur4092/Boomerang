@@ -12,6 +12,8 @@ import Foundation
 struct PopUpView: CentrePopup {
     //MARK: - PROPERTIES
     @State var task: String = ""
+    @State private var isPriority: Bool = false
+    
     @FocusState private var textFieldFocused
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -22,14 +24,15 @@ struct PopUpView: CentrePopup {
     
     func createContent() -> some View {
         VStack(spacing: 0) {
-            Spacer.height(24)
-            createIllustration()
-                .padding(.vertical, 20)
+//            Spacer.height(24)
+            //            createIllustration()
+//                .padding(.vertical, 20)
             
             createHeader()
                 .padding(.top, 24)
                 .padding(.bottom, 20)
             
+            createSubHeader()
             
             
             createTextField()
@@ -44,7 +47,7 @@ struct PopUpView: CentrePopup {
             
             Spacer.height(24)
         }
-        .padding(.horizontal, 20)
+        .padding(.horizontal, 24)
         .onAppear(perform: onAppear)
     }
 }
@@ -54,24 +57,57 @@ private extension PopUpView {
         Image("boomerang")
             .resizable()
             .aspectRatio(contentMode: .fit)
-            .frame(height: 100)
+            .frame(height: 50)
     }
+    
     func createHeader() -> some View {
-        Text("Boomerang:")
-            .font(.boldFont(size: 18))
-        //            .font(.interBold(18))
-            .foregroundColor(.onBackgroundPrimary)
+        HStack{
+            Image("boomerang")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(height: 33)
+            
+            Text("Create a New Boomerang:")
+                .font(.boldFont(size: 18))
+            //            .font(.interBold(18))
+                .foregroundColor(.onBackgroundPrimary)
+            
+            Spacer()
+        }
     }
+    
+    func createSubHeader() -> some View {
+        HStack(alignment: .center){
+            Text("Is this important?")
+                .font(Font.regularFont(size: 10))
+                .foregroundColor(.gray)
+            
+            Spacer()
+            
+            HStack{
+                Toggle(isOn: $isPriority) {
+                    Text("🔥")
+                }
+                .toggleStyle(CheckboxToggleStyle())
+            }
+            
+        }
+    }
+    
+    
     func createTextField() -> some View {
-        TextField("??", text: $task)
-            .font(.mediumFont(size: 24))
-            .foregroundColor(.onBackgroundPrimary)
-        
-            .multilineTextAlignment(.center)
-            .padding(.horizontal, 24)
-            .frame(maxWidth: .infinity)
-            .focused($textFieldFocused)
+        VStack(alignment: .leading, spacing: 12){
+            TextField("??", text: $task)
+                .font(.mediumFont(size: 24))
+                .foregroundColor(.onBackgroundPrimary)
+                .multilineTextAlignment(.leading) // <-- Change this line
+                .frame(maxWidth: .infinity)
+                .focused($textFieldFocused)
+            
+            RoundedRectangle(cornerRadius: 4).frame(height: 1)
+        }
     }
+
     
     func createCancelButton() -> some View {
         Button {
@@ -84,7 +120,7 @@ private extension PopUpView {
                 .frame(maxWidth: .infinity)
             
                 .background(Color.gray)
-                .cornerRadius(8)
+                .cornerRadius(12)
             
         }
     }
@@ -98,9 +134,9 @@ private extension PopUpView {
                 .frame(maxWidth: .infinity)
         }
         .background(task.isEmpty ? Color.clear : Color.onMainColor)
-        .overlay(RoundedRectangle(cornerRadius: 8)
+        .overlay(RoundedRectangle(cornerRadius: 12)
             .stroke(task.isEmpty ? Color.onMainColor : Color.clear, lineWidth: 2))
-        .cornerRadius(8)
+        .cornerRadius(12)
         .disabled(task.isEmpty)
     }
     
@@ -111,10 +147,11 @@ private extension PopUpView {
             newTask.id = UUID()
             newTask.task = task
             newTask.timestamp = Date()
+            newTask.priority = isPriority
             
             let notificationHandler = NotificationHandler()
             //            notificationHandler.sendNotification(with: newTask.task ?? "") // Calling sendNotification method
-            notificationHandler.sendNotification(date: Date(), type: "time", title: "Boomerang", body: task)// Calling sendNotification method
+            notificationHandler.sendNotification(date: Date(), type: "time", title: isPriority ? "Boomerang🔥" : "Boomerang", body: task)// Calling sendNotification method
             
             
             
@@ -140,3 +177,20 @@ private extension PopUpView {
 }
 
 
+struct CheckboxToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        HStack {
+            configuration.label  // The label (Text("Check me!"))
+            
+//            Spacer()
+            
+            Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
+                .resizable()
+                .foregroundColor(configuration.isOn ? .blue : .gray)
+                .frame(width: 24, height: 24)
+                .onTapGesture {
+                    configuration.isOn.toggle()
+                }
+        }
+    }
+}

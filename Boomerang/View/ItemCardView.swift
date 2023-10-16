@@ -78,10 +78,10 @@ struct itemCard : View {
         
         return VStack(alignment: .leading) {
             Text(monthDay)
-                .font(.boldFont(size: 16))
+                .font(Font.boldFont(size: 16))
                 .foregroundColor(colorScheme == .dark ? Color.onBackgroundPrimary : Color.primary)
             Text(time)
-                .font(.regularFont(size: 14))
+                .font(Font.regularFont(size: 14))
                 .foregroundColor(colorScheme == .dark ? Color.onBackgroundSecondary : Color.secondary)
         }
         .frame(width: 60)
@@ -90,7 +90,7 @@ struct itemCard : View {
     fileprivate var boomerang : some View {
         HStack {
             Text(item.task ?? "")
-                .font(.mediumFont(size: 18))
+                .font(Font.mediumFont(size: 18))
                 .foregroundColor(colorScheme == .dark ? Color.black : Color.primary)
                 .multilineTextAlignment(.leading)
                 .lineLimit(1)

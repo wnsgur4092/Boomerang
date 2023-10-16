@@ -18,9 +18,24 @@ struct HomeView: View {
         animation: .default)
     private var items: FetchedResults<Item>
     
-    private var itemsGroupedByYear: [String: [Item]] {
-        Dictionary(grouping: items, by: { "\(Calendar.current.component(.year, from: $0.timestamp ?? Date()))" })
+    private var categorizedItems: [String: [Item]] {
+        let todayItems = items.filter {
+            Calendar.current.isDateInToday($0.timestamp ?? Date())
+        }
+        let previousItems = items.filter {
+            !Calendar.current.isDateInToday($0.timestamp ?? Date())
+        }
+        
+        var result: [String: [Item]] = [:]
+        if !todayItems.isEmpty {
+            result["TODAY"] = todayItems
+        }
+        if !previousItems.isEmpty {
+            result["PREVIOUS"] = previousItems
+        }
+        return result
     }
+    
     
     //MARK: - BODY
     var body: some View {
@@ -30,16 +45,17 @@ struct HomeView: View {
             emptyView
         } else {
             ScrollView(.vertical, showsIndicators: false) {
-                ForEach(itemsGroupedByYear.sorted(by: { $0.key > $1.key }), id: \.key) { year, itemsInYear in
-                    Section(header: yearView(for: year)) {
-                        ForEach(itemsInYear, id: \.self) { item in
-                            itemCard(viewModel: ItemCardViewModel(item: item, viewContext: viewContext), item: item)
+                ForEach(categorizedItems.keys.sorted(by: { $0 == "TODAY" ? true : ($1 == "TODAY" ? false : ($0 < $1)) }), id: \.self) { category in
+                    Section(header: categoryView(for: category)) {
+                        ForEach(categorizedItems[category]!, id: \.self) { item in
+                            BoomerangCardView(viewModel: ItemCardViewModel(item: item, viewContext: viewContext), item: item)
                         }
                     }
                 }
             }
         }
     }
+    
     
     //MARK: - COMPONENTS
     fileprivate var header : some View {
@@ -75,10 +91,10 @@ struct HomeView: View {
         .padding()
     }
     
-    private func yearView(for year: String) -> some View {
+    private func categoryView(for category: String) -> some View {
         HStack {
-            Text(year)
-                .font(.mediumFont(size: 24))
+            Text(category)
+                .font(Font.regularFont(size: 20))
                 .foregroundColor(.onBackgroundSecondary)
             
             Spacer()

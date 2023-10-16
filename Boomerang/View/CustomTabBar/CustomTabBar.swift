@@ -42,7 +42,7 @@ struct CustomTabBar: View {
                         .font(Font.tabBar)
                 }
             }
-            .tint(Color.onMainColor)
+            .tint(Color("maincolor"))
             
             Button {
                 selectedTab = .setting
