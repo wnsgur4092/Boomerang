@@ -39,20 +39,19 @@ class NotificationHandler: NSObject, UIApplicationDelegate, UNUserNotificationCe
         }
 
         let content = UNMutableNotificationContent()
-        content.title = "Hi" // 알림 배너 제목
+        content.title = title // Set title from the parameter
         content.body = body
         content.sound = UNNotificationSound.default
-
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
         UNUserNotificationCenter.current().add(request)
     }
     
-    func sendNotificationAgain(task: String) {
+    func sendNotificationAgain(task: String, priority: Bool) {
          // 알림을 보내려는 작업과 관련된 정보를 구성합니다.
          // 예를 들어, 시간 간격, 제목, 본문 등을 설정할 수 있습니다.
 
          let timeInterval: Double = 1 // 재알림의 시간 간격 (예: 1초 뒤)
-         let title = "🔥Important!!" // 재알림 제목
+        let title = priority ? "Boomerang🔥" : "Boomerang" // 재알림 제목
          let body = task // 알림 본문
 
          // 알림 트리거 생성 (여기서는 시간 간격 트리거 사용)

@@ -116,7 +116,8 @@ struct BoomerangCardView: View {
     }
     
     fileprivate var resendButton : some View {
-        Button(action: {notificationHandler.sendNotificationAgain(task: item.task ?? "")
+        Button(action: {
+            notificationHandler.sendNotificationAgain(task: item.task ?? "", priority: item.priority)
         }, label: {
             HStack{
                 Text("Resend")
@@ -127,8 +128,8 @@ struct BoomerangCardView: View {
             .padding(.vertical,4)
             .background(RoundedRectangle(cornerRadius: 8).stroke(lineWidth: 1).opacity(0.3))
         })
-        
     }
+
     
 }
 

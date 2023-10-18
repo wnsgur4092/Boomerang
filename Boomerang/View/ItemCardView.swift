@@ -100,7 +100,7 @@ struct itemCard : View {
     
     fileprivate var resendButton : some View {
         Button {
-            notificationHandler.sendNotificationAgain(task: item.task ?? "")
+            notificationHandler.sendNotificationAgain(task: item.task ?? "", priority: item.priority)
         } label: {
             Image(systemName: "arrow.up")
                 .resizable()
