@@ -23,31 +23,30 @@ struct PopUpView: CentrePopup {
     }
     
     func createContent() -> some View {
-        VStack(spacing: 0) {
-//            Spacer.height(24)
-            //            createIllustration()
-//                .padding(.vertical, 20)
-            
+        VStack(spacing: 20) {
+            Spacer.height(20)
+        
             createHeader()
-                .padding(.top, 24)
-                .padding(.bottom, 20)
+            
+            Spacer.height(10)
             
             createSubHeader()
             
+            Spacer.height(20)
             
             createTextField()
-                .padding(.vertical, 32)
+//                .padding(.vertical, 32)
             
-            Spacer.height(32)
+            Spacer.height(20)
             
             HStack(spacing: 24){
                 createCancelButton()
                 createSaveButton()
             }
             
-            Spacer.height(24)
+            Spacer.height(20)
         }
-        .padding(.horizontal, 24)
+        .padding(.horizontal, 32)
         .onAppear(perform: onAppear)
     }
 }
@@ -61,25 +60,27 @@ private extension PopUpView {
     }
     
     func createHeader() -> some View {
-        HStack{
+        HStack(alignment: .center){
             Image("boomerang")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(height: 33)
+                .frame(height: 22)
             
             Text("Create a New Boomerang:")
                 .font(.boldFont(size: 18))
             //            .font(.interBold(18))
                 .foregroundColor(.onBackgroundPrimary)
+   
             
             Spacer()
         }
+
     }
     
     func createSubHeader() -> some View {
         HStack(alignment: .center){
             Text("Is this important?")
-                .font(Font.regularFont(size: 10))
+                .font(Font.regularFont(size: 16))
                 .foregroundColor(.gray)
             
             Spacer()
@@ -97,7 +98,7 @@ private extension PopUpView {
     
     func createTextField() -> some View {
         VStack(alignment: .leading, spacing: 12){
-            TextField("??", text: $task)
+            TextField("", text: $task)
                 .font(.mediumFont(size: 24))
                 .foregroundColor(.onBackgroundPrimary)
                 .multilineTextAlignment(.leading) // <-- Change this line
@@ -107,7 +108,7 @@ private extension PopUpView {
             RoundedRectangle(cornerRadius: 4).frame(height: 1)
         }
     }
-
+    
     
     func createCancelButton() -> some View {
         Button {
@@ -127,11 +128,16 @@ private extension PopUpView {
     
     func createSaveButton() -> some View {
         Button(action: addItem) {
-            Text("Send".uppercased())
-                .font(.boldFont(size: 16))
-                .foregroundColor(task.isEmpty ? Color.onMainColor : Color.white)
-                .padding(.vertical, 14)
-                .frame(maxWidth: .infinity)
+            HStack(alignment: .center){
+                Text("Send".uppercased())
+                
+                Image(systemName: "arrow.up")
+            }
+            .offset(x: 7)
+            .font(.boldFont(size: 16))
+            .foregroundColor(task.isEmpty ? Color.onMainColor : Color.white)
+            .padding(.vertical, 14)
+            .frame(maxWidth: .infinity)
         }
         .background(task.isEmpty ? Color.clear : Color.onMainColor)
         .overlay(RoundedRectangle(cornerRadius: 12)
@@ -152,8 +158,6 @@ private extension PopUpView {
             let notificationHandler = NotificationHandler()
             //            notificationHandler.sendNotification(with: newTask.task ?? "") // Calling sendNotification method
             notificationHandler.sendNotification(date: Date(), type: "time", title: isPriority ? "Boomerang🔥" : "Boomerang", body: task)// Calling sendNotification method
-            
-            
             
             dismiss()
             
@@ -182,7 +186,7 @@ struct CheckboxToggleStyle: ToggleStyle {
         HStack {
             configuration.label  // The label (Text("Check me!"))
             
-//            Spacer()
+            //            Spacer()
             
             Image(systemName: configuration.isOn ? "checkmark.square.fill" : "square")
                 .resizable()
