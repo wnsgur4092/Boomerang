@@ -106,6 +106,7 @@ private extension PopUpView {
                 .focused($textFieldFocused)
             
             RoundedRectangle(cornerRadius: 4).frame(height: 1)
+                .foregroundColor(.secondary)
         }
     }
     
