@@ -11,6 +11,7 @@ import CoreData
 struct RootView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var selectedTab : Tabs = .home
+   
     
     var body: some View {
         VStack{

@@ -54,7 +54,7 @@ struct BoomerangCardView: View {
             .zIndex(1)
             .padding(.vertical, 14)
             .padding(.horizontal, 16)
-            .background(Color.onBackgroundTertiary)
+            .background(Color.onCardColor)
             .cornerRadius(8)
             .offset(x: viewModel.offset)
             .gesture(

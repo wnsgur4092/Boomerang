@@ -62,7 +62,7 @@ struct SettingView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .padding(.horizontal, 16)
-            .background(Color.onBackgroundTertiary)
+            .background(Color.onSettingColor)
             .cornerRadius(8)
             
             Text("To enable notifications, please turn on Allow Notifications.")
@@ -84,7 +84,7 @@ struct SettingView: View {
             .frame(maxWidth: .infinity)
             .padding(.vertical, 14)
             .padding(.horizontal, 16)
-            .background(Color.onBackgroundTertiary)
+            .background(Color.onSettingColor)
             .cornerRadius(8)
             
             Text("Delete all Boomerangs")

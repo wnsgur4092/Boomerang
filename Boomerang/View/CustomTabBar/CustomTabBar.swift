@@ -27,7 +27,7 @@ struct CustomTabBar: View {
             } label: {
                 TabBarButton(buttonText: "Home", ImageName: "house", isActive: selectedTab == .home)
             }
-            .tint(Color.gray)
+            .tint(Color.onIconColor)
 
             Button {
                 PopUpView().showAndStack()
@@ -42,14 +42,14 @@ struct CustomTabBar: View {
                         .font(Font.tabBar)
                 }
             }
-            .tint(Color("maincolor"))
+            .tint(Color.onMainColor)
             
             Button {
                 selectedTab = .setting
             } label: {
                 TabBarButton(buttonText: "Setting", ImageName: "gear", isActive: selectedTab == .setting)
             }
-            .tint(Color.gray)
+            .tint(Color.onIconColor)
 
         }
         .frame(height: 82)

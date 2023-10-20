@@ -47,6 +47,8 @@ struct PopUpView: CentrePopup {
             Spacer.height(20)
         }
         .padding(.horizontal, 32)
+        .background(Color.onPopUpColor)
+        .cornerRadius(20)
         .onAppear(perform: onAppear)
     }
 }
@@ -61,15 +63,10 @@ private extension PopUpView {
     
     func createHeader() -> some View {
         HStack(alignment: .center){
-            Image("boomerang")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(height: 22)
-            
             Text("Create a New Boomerang:")
                 .font(.boldFont(size: 18))
             //            .font(.interBold(18))
-                .foregroundColor(.onBackgroundPrimary)
+                .foregroundColor(.primary)
    
             
             Spacer()
@@ -100,7 +97,7 @@ private extension PopUpView {
         VStack(alignment: .leading, spacing: 12){
             TextField("", text: $task)
                 .font(.mediumFont(size: 24))
-                .foregroundColor(.onBackgroundPrimary)
+                .foregroundColor(.primary)
                 .multilineTextAlignment(.leading) // <-- Change this line
                 .frame(maxWidth: .infinity)
                 .focused($textFieldFocused)

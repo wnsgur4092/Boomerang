@@ -13,14 +13,6 @@ class NotificationHandler: NSObject, UIApplicationDelegate, UNUserNotificationCe
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.delegate = self
-        notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                print("Notification permission granted.")
-            } else if let error = error {
-                print(error.localizedDescription)
-                print("Notification permission denied.")
-            }
-        }
         return true
     }
     

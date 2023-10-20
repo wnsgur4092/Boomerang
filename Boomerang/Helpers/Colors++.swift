@@ -9,12 +9,15 @@ import Foundation
 import SwiftUI
 
 extension Color {
-    static let primary: Color = .init(hex: 0x388091)
-    static let secondary: Color = .init(hex: 0xE66460)
     static let onBackgroundPrimary: Color = .init(hex: 0x252525)
     static let onBackgroundSecondary: Color = .init(hex: 0x6F7278)
     static let onBackgroundTertiary: Color = .init(hex: 0xEEF1F7)
+    
     static let onMainColor : Color = Color("maincolor")
+    static let onIconColor : Color = Color("iconColor")
+    static let onCardColor : Color = Color("backgroundColor")
+    static let onPopUpColor : Color = Color("popupColor")
+    static let onSettingColor : Color = Color("settingColor")
 }
 
 private extension Color {
