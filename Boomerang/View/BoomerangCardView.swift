@@ -16,7 +16,6 @@ struct BoomerangCardView: View {
     
     @State private var isResendAndEditButtonVisible: Bool = false
     
-    
     var item : Item
     @State private var isSwiped: Bool = false
     @State private var offset: CGFloat = 0
@@ -26,7 +25,6 @@ struct BoomerangCardView: View {
         ZStack{
             LinearGradient(gradient: .init(colors: [Color("lightred"),Color("red")]), startPoint: .leading, endPoint: .trailing)
                 .cornerRadius(8)
-            //                .frame(height: 300)
             
             // Delete Button
             deleteButton
@@ -91,10 +89,6 @@ struct BoomerangCardView: View {
             .font(Font.boldFont(size: 16))
             .foregroundColor(.white)
             .background(RoundedRectangle(cornerRadius: 8).fill(Color("maincolor")))
-        
-        
-        // .font(Font.boldFont(size: 16))
-        // .foregroundColor(colorScheme == .dark ? Color.onBackgroundPrimary : Color.primary)
     }
     
     
@@ -103,8 +97,6 @@ struct BoomerangCardView: View {
         
         return Text(timeValue)
             .font(Font.regularFont(size: 16))
-        //            .font(Font.regularFont(size: 14))
-        //            .foregroundColor(colorScheme == .dark ? Color.onBackgroundSecondary : Color.secondary)
     }
     
     fileprivate var boomerang : some View {

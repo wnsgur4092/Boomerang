@@ -35,7 +35,6 @@ struct PopUpView: CentrePopup {
             Spacer.height(20)
             
             createTextField()
-//                .padding(.vertical, 32)
             
             Spacer.height(20)
             
@@ -53,6 +52,7 @@ struct PopUpView: CentrePopup {
     }
 }
 
+//MARK: - COMPONENETS
 private extension PopUpView {
     func createIllustration() -> some View {
         Image("boomerang")
