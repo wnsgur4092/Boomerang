@@ -8,5 +8,5 @@
 import Foundation
 
 struct Version {
-    static let current: Double = 1.4
+    static let current: Double = 1.5
 }
